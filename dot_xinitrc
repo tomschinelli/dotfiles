@@ -1,0 +1,7 @@
+
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipewire-media-session &
+
+setxkbmap de
+exec i3

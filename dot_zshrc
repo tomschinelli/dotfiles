@@ -1,0 +1,83 @@
+autoload -U promptinit; promptinit; 
+autoload -U compinit bashcompinit
+compinit
+bashcompinit
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' rehash true
+
+autoload -U select-word-style
+select-word-style bash
+
+setopt auto_cd
+setopt HIST_IGNORE_SPACE
+setopt interactive_comments
+setopt inc_append_history
+setopt share_history
+setopt AUTO_PUSHD          
+setopt PUSHD_IGNORE_DUPS    
+setopt PUSHD_SILENT         
+
+if [[ -t 0 && $- = *i* ]]
+then
+    stty -ixon
+fi 
+
+unset histchars
+
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+bindkey '^[.' insert-last-word
+bindkey "^[[H" beginning-of-line # HOME
+bindkey "^[[F" end-of-line # END
+bindkey "^[OH" beginning-of-line # HOME
+bindkey "^[OF" end-of-line # END
+bindkey "^[[3~" delete-char # DEL
+bindkey -M emacs '\e#' pound-insert # ALT+#
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+
+
+alias eZ="vim ~/.zshrc"
+alias eI="vim ~/.config/i3/config"
+alias eW="vim ~/.config/wezterm/wezterm.lua"
+alias eI="vim ~/.config/i3/config"
+alias eV="vim ~/.vimrc"
+alias eS="vim ~/.config/starship.toml"
+alias wetter="curl http://v3.wttr.in/Hessen.sxl; sleep 5; curl http://v1.wttr.in/Hanau"
+alias history="history 0"
+alias etcher="usbimager"
+alias ls='ls --color=auto'
+
+
+function rm
+{
+  /bin/rm $@ -I
+}
+
+alias k="kubectl"
+alias serve="python -m http.server 8000"
+
+
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=( end-of-line )
+#ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=( end-of-line )
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+export EDITOR="vim"
+export PROMPT_EOL_MARK=""
+
+eval "$(starship init zsh)"
+
+
+
+
+
