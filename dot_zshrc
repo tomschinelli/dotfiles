@@ -46,11 +46,9 @@ bindkey '^[[1;3D' backward-word
 
 alias eZ="vim ~/.zshrc"
 alias eI="vim ~/.config/i3/config"
-alias eW="vim ~/.config/wezterm/wezterm.lua"
-alias eI="vim ~/.config/i3/config"
+alias eW="vim ~/.config/wezterm.lua"
 alias eV="vim ~/.vimrc"
 alias eS="vim ~/.config/starship.toml"
-alias wetter="curl http://v3.wttr.in/Hessen.sxl; sleep 5; curl http://v1.wttr.in/Hanau"
 alias history="history 0"
 alias etcher="usbimager"
 alias ls='ls --color=auto'

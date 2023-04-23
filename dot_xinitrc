@@ -1,7 +1,12 @@
 
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/pipewire-media-session &
+# delay exec after i3 start
+sleep 2 && { 
+ sleep 1
+ jetbrains-toolbox --minimize &
+ nm-applet &
+ picom &
+ greenclip daemon &
+} &
 
 setxkbmap de
 exec i3
