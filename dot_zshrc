@@ -63,7 +63,7 @@ alias k="kubectl"
 alias serve="python -m http.server 8000"
 
 
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=( end-of-line )
 #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=( end-of-line )
 

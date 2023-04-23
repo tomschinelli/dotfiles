@@ -154,7 +154,7 @@ return {
     border_left_width = '0.5cell',
     border_right_width = '0.5cell',
   },
-  window_background_opacity = 0.97,
+  window_background_opacity = 0.90,
   window_decorations = "NONE",
   tab_bar_at_bottom = true,
   hide_tab_bar_if_only_one_tab = false,
