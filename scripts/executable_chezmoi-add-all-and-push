@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+set -e
+
+chezmoi re-add
+cd ~/.local/share/chezmoi 
+git add .
+git commit -m "Update via chezmoi-add-all-and-push"
+git push
+cd --

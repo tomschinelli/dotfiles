@@ -157,7 +157,7 @@ return {
   window_background_opacity = 0.90,
   window_decorations = "NONE",
   tab_bar_at_bottom = true,
-  hide_tab_bar_if_only_one_tab = false,
+  hide_tab_bar_if_only_one_tab = true,
   use_fancy_tab_bar = false,
   scrollback_lines = 999999,
   enable_scroll_bar = false,

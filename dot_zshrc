@@ -52,12 +52,13 @@ alias eS="vim ~/.config/starship.toml"
 alias history="history 0"
 alias etcher="usbimager"
 alias ls='ls --color=auto'
-
+alias cmp='~/scripts/chezmoi-add-all-and-push'
 
 function rm
 {
   /bin/rm $@ -I
 }
+
 
 alias k="kubectl"
 alias serve="python -m http.server 8000"
@@ -66,7 +67,6 @@ alias serve="python -m http.server 8000"
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=( end-of-line )
 #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=( end-of-line )
-
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
