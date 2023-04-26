@@ -43,16 +43,18 @@ bindkey '^S' history-incremental-pattern-search-forward
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
 
-
+alias ll='ls -larth'
 alias eZ="vim ~/.zshrc"
 alias eI="vim ~/.config/i3/config"
-alias eW="vim ~/.config/wezterm.lua"
+alias eW="vim ~/.wezterm.lua"
 alias eV="vim ~/.vimrc"
 alias eS="vim ~/.config/starship.toml"
 alias history="history 0"
 alias etcher="usbimager"
 alias ls='ls --color=auto'
 alias cmp='~/scripts/chezmoi-add-all-and-push'
+
+
 
 function rm
 {
