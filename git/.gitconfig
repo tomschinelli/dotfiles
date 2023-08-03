@@ -1,0 +1,5 @@
+[user]
+	email = tom.schinelli@gmail.com
+	name = Tom Schinelli
+[core]
+	excludesfile = /home/tom/.gitignore

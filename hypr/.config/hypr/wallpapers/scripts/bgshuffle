@@ -1,0 +1,11 @@
+#!/bin/sh
+killall swaybg
+
+location="$1"
+echo $location
+
+figlet "Background SHUFFLE"
+echo "Images: "
+find $location -maxdepth 1 -type f 
+
+swaybg -i $(find $location -maxdepth 1 -type f | shuf -n1) -m fill &
