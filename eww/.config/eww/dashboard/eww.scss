@@ -1,0 +1,28 @@
+
+@import "widget.system.scss";
+@import "widget.clock.scss";
+
+
+/** Global *******************************************/
+*{
+	all: unset;
+	font-family: feather;
+	font-family: Hack;
+}
+
+
+/** Background ***************************************/
+.bg {
+	background-color: #474D59;
+	opacity: 0.0;
+}
+
+/** Generic window ***********************************/
+
+.main{
+	font-size: 18px;
+	background-color: rgba(29, 31, 33, 0.60);
+    border-radius: 16px;
+
+}
+

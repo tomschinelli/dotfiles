@@ -1,0 +1,102 @@
+;;https://github.dev/adi1090x/widgets
+;; ** Variables ***********************************************************************
+
+
+;; System vars
+(defpoll HOST :interval "5s" `cat /etc/hostname`)
+(defpoll USER :interval "5s" `whoami`)
+(defpoll CPU_USAGE :interval "1s" `scripts/sys_info --cpu`)
+(defpoll MEM_USAGE :interval "1s" `scripts/sys_info --mem`)
+(defpoll BLIGHT :interval "1s" `scripts/sys_info --blight`)
+(defpoll BATTERY :interval "5s" `scripts/sys_info --bat`)
+
+;; Time vars
+(defpoll HOUR :interval "5s" `date +%H`)
+(defpoll MIN :interval "5s" `date +%M`)
+(defpoll SEC :interval "1s" `date +%S`)
+(defpoll MER :interval "5s" `date +%p`)
+(defpoll DAY :interval "5s" `date +%A`)
+(defpoll MONTH :interval "60s" `date +%m`)
+(defpoll YEAR :interval "60s" `date +%Y`)
+(defpoll DAY_IN_NONTH :interval "60s" `date +%d`)
+
+;; ** Widgets *************************************************************************
+;; system
+(defwidget system []
+  (box :class "" :vexpand "false" :hexpand "false" :space-evenly false :spacing 35
+    (box :class "cpu_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+      (label :class "iconcpu" :text "")
+      (label :class "iconcpu" :text "${CPU_USAGE}%"))
+    (box :class "mem_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+      (label :class "iconmem" :text "")
+      (label :class "iconmem" :text "${MEM_USAGE}%"))
+    (box :class "bright_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+      (label :class "iconbright" :text "")
+      (label :class "iconbright" :text "${BLIGHT}%"))
+    (box :class "bat_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+      (label :class "iconbat" :text "")
+      (label :class "iconbat" :text "${BATTERY}%"))))
+
+
+;; clock
+
+(defwidget clock-bar []
+  (box :class "clock-bar"
+    :orientation "h"
+    :space-evenly false
+    :spacing 10
+    :halign "end"
+    :hexpand "false"
+    (label :class "time" :text "${HOUR}:${MIN}:${SEC}"	)
+    (label :class "" :valign "center" :halign "center" :wrap "true"  :text "-")
+    (label :class "date" :text "${DAY_IN_NONTH}.${MONTH}.${YEAR}"	)
+    (label :class "time_day" :valign "center" :halign "center" :wrap "true"  :text DAY)
+    
+  ))
+
+
+
+;; main (bar)
+(defwidget main []
+  (centerbox :class ""
+    (box :spacing 20
+      :space-evenly false
+      :halign "start"
+      :style "padding-left: 20px;"
+      (system)
+    )
+    
+    (box
+      (label :text "${USER} @ ${HOST}")
+    )
+    (box :spacing 20
+      :space-evenly false
+      :halign "end"
+      :style "padding-right: 20px;"
+      (clock-bar :halign "end")
+      (systray)
+    )
+  )
+)
+
+
+;; ** Windows *************************************************************************
+
+
+
+;; main
+(defwindow main
+  :stacking "fg"
+  :focusable "false"
+  :monitor 0
+  :exclusive true
+  
+  :geometry (geometry :x "0%"
+    :y "4"
+    :width "2290"
+    :height "30px"
+    :anchor "top center"
+  )
+  (main)
+  
+)

@@ -1,0 +1,34 @@
+/** Clock ********************************************/
+.clock,.clock-bar {
+
+    .time {
+        color: #98C379;
+
+    }
+
+    .date {
+        color: #EBCB8D;
+
+    }
+    .time_hour {
+        color: #BF616A;
+    }
+    .time_min{
+        color: #98C379;
+
+    }
+
+    .time_day {
+        color: #88C0D0;
+    }
+
+    .time_sec {
+        color: #EBCB8D;
+        font-weight: normal;
+    }
+    .time_weekday {
+        color: #98C379;
+        font-weight: bold;
+    }
+}
+
