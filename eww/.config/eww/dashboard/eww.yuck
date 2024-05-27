@@ -1,6 +1,9 @@
 ;;https://github.dev/adi1090x/widgets
 ;; ** Variables ***********************************************************************
-
+(deflisten workspaces
+  "scripts/workspaces.sh")
+(defwidget workspaces []
+    (literal :content workspaces))
 
 ;; System vars
 (defpoll HOST :interval "5s" `cat /etc/hostname`)
@@ -66,8 +69,9 @@
       (system)
     )
     
-    (box
-      (label :text "${USER} @ ${HOST}")
+    (box :space-evenly false :valign "center" :spacing 10
+      (label :class "ussss" :text "${USER} @ ${HOST}")
+      (workspaces)
     )
     (box :spacing 20
       :space-evenly false
@@ -88,7 +92,24 @@
 (defwindow main
   :stacking "fg"
   :focusable "false"
-  :monitor 0
+  :monitor '[1, 0]'
+  :exclusive true
+  
+  :geometry (geometry :x "0%"
+    :y "4"
+    :width "2290"
+    :height "30px"
+    :anchor "top center"
+  )
+  (main)
+  
+)
+
+;; main
+(defwindow main
+  :stacking "fg"
+  :focusable "false"
+  :monitor '[1, 0]'
   :exclusive true
   
   :geometry (geometry :x "0%"
