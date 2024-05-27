@@ -1,0 +1,23 @@
+
+@import "colors.scss";
+
+$screen-color: $green;
+$active-ws-color: $blue;
+.screens {
+	padding: 5px 10px;
+}
+.screen_label{
+	padding-right: 10px;
+	
+	&.active{
+		color: $screen-color;
+
+	}
+}
+.workspace_label{
+	padding: 0 5px;
+	&.active{
+		color: $active-ws-color;
+
+	}
+}
